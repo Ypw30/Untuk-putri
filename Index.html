@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Putri 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+  color: #ff4d6d;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff2f5c;
+}
+
+#error {
+  color: red;
+  margin-top: 10px;
+  display: none;
+}
+
+#message {
+  display: none;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Animasi hati */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  color: #ff4d6d;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="lock">
+  <h2>🔐 Teka-Teki Cinta</h2>
+  <p>
+Aku bukan nama,<br>
+aku bukan kata.<br>
+Aku adalah hari pertama kamu hadir ke dunia.<br><br>
+
+Dua digit awal adalah awal langkah,<br>
+dua digit tengah adalah bulan rasa,<br>
+dua digit akhir adalah tahun yang membuatmu ada.<br><br>
+
+Gabungkan semuanya.
+</p>
+  <input type="password" id="pin" placeholder="Masukkan PIN">
+  <br>
+  <button onclick="checkPin()">Buka Pesan 💌</button>
+  <div id="error">PIN salah, coba lagi ya 💔</div>
+</div>
+
+<div class="card" id="message">
+  <h2>💖 Untuk Putri 💖</h2>
+  <p>
+    Selamat menjalani harimu, Putri 🌸<br><br>
+    Jaga kesehatan ya,<br>
+    Jangan lupa bahagia selalu 😊<br><br>
+    Semoga hari ini penuh senyum,<br>
+    dan hal-hal baik datang padamu ✨
+  </p>
+</div>
+
+<script>
+const correctPin = "081198"; // GANTI PIN DI SINI
+
+function checkPin() {
+  const input = document.getElementById("pin").value;
+  if (input === correctPin) {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("message").style.display = "block";
+    startHearts();
+  } else {
+    document.getElementById("error").style.display = "block";
+  }
+}
+
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+}
+</script>
+
+</body>
+</html>
